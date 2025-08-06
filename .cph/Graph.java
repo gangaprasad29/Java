@@ -132,6 +132,40 @@ public class Graph {
             }
         }
     }
+
+    public static void dfs(ArrayList<Edge>[] graph, int curr, boolean[] visited) {
+        System.out.print(curr + " ");
+        visited[curr] = true;
+
+        for (int i = 0; i < graph[curr].size(); i++) {
+            Edge e = graph[curr].get(i);
+            if (!visited[e.dest]) {
+                dfs(graph, e.dest, visited);
+            }
+        }
+    }
+
+
+    // ////// Q} Has Path \\ \\\\\\
+        public static boolean hasPath(ArrayList<Edge>[] graph, int src, int dest, boolean[] visited) {
+        if (src == dest) {
+            return true; // Found the destination
+        }
+        
+        visited[src] = true; // Mark the current node as visited
+        
+        for (int i = 0; i < graph[src].size(); i++) {
+            Edge e = graph[src].get(i);
+            if (!visited[e.dest]) { // If the destination of the edge is not visited
+                if (hasPath(graph, e.dest, dest, visited)) {
+                    return true; // Path found in the recursive call
+                }
+            }
+        }
+        
+        return false; // No path found
+    }
+    
     public static void main(String[] args) {
         /*
                   0
@@ -149,5 +183,17 @@ public class Graph {
         createGraph(V, graph);
 
         bfs(graph);
+        System.out.println();
+        
+        boolean[] visited = new boolean[V];
+        dfs(graph, 0, visited); // Starting DFS from vertex 0
+
+        System.out.println();
+        // Check if there's a path from vertex 0 to vertex 5
+        System.out.println(hasPath(graph, 0, 5, new boolean[V])); // Check if there's a path from 0 to 5
+        
     }
 }
+
+
+
