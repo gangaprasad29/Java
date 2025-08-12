@@ -126,12 +126,12 @@ public class Graph4 {
         }
 
         @Override
-        public int compareTo(Pair other) {
-            return this.cost - other.cost;
+        public int compareTo(Pair p2) {
+            return this.cost - p2.cost;
         }
     }
 
-    public static void PrintMST(ArrayList<Edge>[] graph, int V) {
+    public static void PrimsMST(ArrayList<Edge>[] graph, int V) {
         boolean[] visited = new boolean[V];
         PriorityQueue<Pair> pq = new PriorityQueue<>();
 
@@ -166,6 +166,6 @@ public class Graph4 {
         int V = 4;
         ArrayList<Edge>[] graph = new ArrayList[V];
         createGraph(graph, V);
-        PrintMST(graph, V);
+        PrimsMST(graph, V);
     }
 }
