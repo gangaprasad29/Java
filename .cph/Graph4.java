@@ -136,6 +136,7 @@ public class Graph4 {
         PriorityQueue<Pair> pq = new PriorityQueue<>();
 
         pq.add(new Pair(0, 0, -1)); // start from vertex 0
+        
         int mstCost = 0;
         ArrayList<String> mstEdges = new ArrayList<>();
 
