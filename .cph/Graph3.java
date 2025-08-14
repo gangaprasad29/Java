@@ -181,7 +181,7 @@ public class Graph3 {
 
         for(int i=0;i<graph.length;i++){
             if(i != src){
-                dist[i]=Integer.MAX_VALUE; // +infinity 
+                dist[i]=Integer.MAX_VALUE; // +infinity to all vertices except src
             }
         }
 
