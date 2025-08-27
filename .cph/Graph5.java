@@ -223,9 +223,9 @@ public class Graph5 {
             return this.wt - e2.wt; // sort by weight ascending
         }
     }
-
+ 
     static int n = 4; // vertices
-    static int parent[] = new int[n];
+    static int parent[] = new int[n]; 
     static int rank[] = new int[n];
 
     static void createGraph(ArrayList<Edge> edges) {
